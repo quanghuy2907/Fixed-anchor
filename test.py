@@ -40,12 +40,11 @@ model = Fixed_anchor(d_model=MODEL_CONFIG['d_model'],
                      return_intermediate_dec=MODEL_CONFIG['return_inter'])
 model = model.to(device=device)
 
-weight_path = './weights/snu_20250801_213324/model_weights.pth'
-model.load_state_dict(torch.load(weight_path, weights_only=True))
+model.load_state_dict(torch.load(TEST_CONFIG['weight_path'], weights_only=True))
 model.eval()
 
 output_processing_tool = OutputProcessing(test_dataset.dataset_config, device)
-eval_tool = Evaluation(test_dataset.dataset_config, threshold='loose')
+eval_tool = Evaluation(test_dataset.dataset_config, threshold=TEST_CONFIG['evaluation_mode'])
 
 inf_time = 0
 
