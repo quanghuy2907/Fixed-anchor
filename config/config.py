@@ -96,6 +96,9 @@ TRAIN_CONFIG = {
 
 TEST_CONFIG = {
     'batch_size': 1,
+    'weight_path': './weights/snu_20250801_213324/model_weights.pth',
+    'evaluation_mode': 'loose',
+    
     'conf_thres': 0.7,
     'loose_loc_thres': 12, 
     'loose_ori_thres': 10,
